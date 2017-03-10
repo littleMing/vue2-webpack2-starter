@@ -8,7 +8,6 @@ Vue.config.debug = __DEV__ ? true : false;
 
 window.onunhandledrejection = function (rejection) {
   console.error(rejection.promise);
-  // console.error(rejection.promise._d.v.stack);
 };
 
 // Vue plugins
@@ -27,25 +26,32 @@ Vue.prototype.$security = new Security(Vue.prototype.$api);
 const App = require('./app');
 require('./common');
 require('./components');
+const Base = require('./views/product');
 
 // routing
 var router = new Router({
   routes: [
     {
       path: '/test',
-      component: function (resolve) {
+      component: resolve => {
         require(['./views/test/test'], resolve);
       }
+    },
+    {
+      path: '/app',
+      component: { template: '<div><router-view></router-view></div>'},
+      children: [
+        {
+          path: 'product',
+          component: Base.Product
+        }
+      ]
     }
   ],
   scrollBehaviour(to, from, savedPosition) {
     return { x: 0, y: 0 };
   }
 });
-
-// router.redirect({
-//   '*': '/test'
-// });
 
 // Vue.http.interceptors.push((req, next) => {
 //   next(resp => {

@@ -138,7 +138,6 @@ if (isProd) {
     proxy: {
       '/api/*': {
         target: 'http://127.0.0.1:8080/pa',
-        // target: 'http://172.25.12.185:8080/pa',
         secure: false,
       },
     },
