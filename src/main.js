@@ -32,7 +32,12 @@ const Base = require('./views/product');
 var router = new Router({
   routes: [
     {
+      path: '',
+      redirect: {name: 'test'}
+    },
+    {
       path: '/test',
+      name: 'test',
       component: resolve => {
         require(['./views/test/test'], resolve);
       }
