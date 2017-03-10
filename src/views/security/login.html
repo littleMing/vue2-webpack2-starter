@@ -1,0 +1,13 @@
+<div class="row login-box">
+  <div class="column">
+    <form class="form-signin">
+      <h4 class="form-signin-heading">请登录安盛天平车险客户端</h4>
+      <label class="sr-only">坐席工号</label>
+      <input name="username" type="text" class="form-control" v-model="username" placeholder="坐席工号" auto-focus>
+      <label class="sr-only">密码</label>
+      <input name="password" type="password" class="input-block-level form-control" v-model="password" placeholder="密码">
+      <button class="btn btn-lg btn-primary btn-block" @click="login()" type="button">登陆</button>
+      <div class="alert alert-danger" style="margin-top: 10px;" v-show="loginErrorMessage">{{loginErrorMessage}}</div>
+    </form>
+  </div>
+</div>
