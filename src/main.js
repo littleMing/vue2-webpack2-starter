@@ -81,7 +81,7 @@ router.beforeEach((to, from , next) =>{
 });
 
 router.afterEach(route => {
-  console.log(route);
+  // console.log(route);
   // router.app.$store.viewState.hideNavBar = transition.to.hideNavBar;
 });
 
