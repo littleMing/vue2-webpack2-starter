@@ -11,10 +11,14 @@ window.onunhandledrejection = function (rejection) {
 };
 
 // Vue plugins
-const Router = require('vue/vue-router');
-const VueResource = require('vue/vue-resource');
+import Router from 'vue-router';
+import VueResource from 'vue-resource';
+import ElementUI from 'element-ui';
+import 'element-ui/lib/theme-default/index.css';
+
 Vue.use(Router);
 Vue.use(VueResource);
+Vue.use(ElementUI);
 
 Vue.prototype.$store = require('./services/store');
 Vue.prototype.$api = require('./services/api');

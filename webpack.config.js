@@ -10,7 +10,7 @@ var isProd = process.env.NODE_ENV === 'production';
 module.exports = {
   entry: {
     app: './src/main.js',
-    vueLibrary: ['vue/vue', 'vue/vue-router', 'vue/vue-resource'],
+    vueLibrary: ['vue', 'vue-router', 'vue-resource'],
     vendor: [ './lib', 'moment', 'bows', 'font-awesome.css']
   },
   output: {
@@ -23,6 +23,10 @@ module.exports = {
   },
   module: {
     rules: [
+      {
+        test: /\.vue$/,
+        loader: 'vue-loader'
+      },
       {
         test: /\.css$/,
         use: ExtractTextPlugin.extract({
@@ -74,7 +78,7 @@ module.exports = {
   },
   plugins: [
     new webpack.ProvidePlugin({
-      Vue: 'vue/vue.js',
+      Vue: 'vue.js',
       // $: 'jquery',
       // jQuery: 'jquery',
       // 'window.jQuery': 'jquery'
