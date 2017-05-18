@@ -27,7 +27,8 @@ var Security = require('./services/security');
 Vue.prototype.$security = new Security(Vue.prototype.$api);
 
 // Main App
-const App = require('./app');
+// const App = require('./app');
+import App from './app/App.vue';
 require('./common');
 require('./components');
 const Base = require('./views/product');
@@ -43,7 +44,7 @@ var router = new Router({
       path: '/test',
       name: 'test',
       component: resolve => {
-        require(['./views/test/test'], resolve);
+        require(['./views/test/Test.vue'], resolve);
       }
     },
     {
